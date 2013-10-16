@@ -1,4 +1,4 @@
-Customer.Customers = {
+Invoicer.Customers = {
 	create: function (fname, lname, address, phone, email) {
 		CustomerModel.insert({
 			"fname": name,
@@ -9,4 +9,3 @@ Customer.Customers = {
 		});
 	}
 };
-
