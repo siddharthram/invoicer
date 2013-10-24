@@ -1,42 +1,71 @@
 <template name="invoices_page">
 	<div id="login_bar" class="navbar">
-{{loginButtons align="right"}}
-</div>
-    <div class="main_container">
-        <h1>Invoicer</h1>
-        <div class="content” id="graph_content">
-            <div id="graphs_header">
-                <h3>Graphs</h3>
-                <span class="title_link">
-                    - <a href="#" id="new_invoice"> Add an Invoice</a>
-                </span>
-            </div>
-            {{#if has_invoices}}
-                <table id="graphs">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th class="button_col"></th>
-                            <th class="button_col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each invoices}}
-                            {{> invoice_row}}
-                        {{/each}}
-                    </tbody>
-                </table>
-            {{else}}
-                <p>You currently have no invoices!</p>
-            {{/if}}
-        </div>
-    </div>
+		{{loginButtons align="right"}}
+	</div>
+	<div class="main_container">
+		<h1>Invoicer</h1>
+		<div class="content” id="invoice_content">
+			<div id="invoices_header">
+				<h3>Invoices</h3>
+				<span class="title_link">
+					- <a href="#" id="new_invoice"> Add an Invoice</a>
+				</span>
+			</div>
+			{{#if new_invoice}}
+			<div class="new_invoice">
+				{{> new_invoice}}
+			</div>
+			{{/if}}
+			{{#if has_invoices}}
+			<table id="invoices">
+				<thead>
+					<tr>
+						<th></th>
+						<th class="button_col"></th>
+						<th class="button_col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each invoices}}
+					{{> invoice_row}}
+					{{/each}}
+				</tbody>
+			</table>
+			{{else}}
+			<p>You currently have no invoices!</p>
+			{{/if}}
+		</div>
+	</div>
 </template>
 
-<template name="invoice_row">
-	<tr>
-		<td> <span class="invoice_date">{{date}} </span> </td>
-		<td> <span class="invoice_amount">{{amount}}</span> </td>
-		<td> <span class="invoice_description">{{description}}</span> </td>
-	</tr>
+<template name="new_invoice">
+	<div class="container">
+		<form class="form-horizontal">
+			<div class="control-group">
+				<label class="control-label" for="inputClient">Client 
+				</label>
+				<div class="controls">
+					<input type="text" id="inputClient"  placeholder="client name...">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputClient">Invoice 
+				</label>
+				<div class="controls">
+					<input type="text" id="inputInvoiceId"  placeholder="Invoice Id...">
+				</div>
+			<button type="submit" class="btn">Save</button>
+
+			</div>
+		</form>
+	</div>
 </template>
+
+
+	<template name="invoice_row">
+		<tr>
+			<td> <span class="invoice_date">{{date}} </span> </td>
+			<td> <span class="invoice_amount">{{amount}}</span> </td>
+			<td> <span class="invoice_description">{{description}}</span> </td>
+		</tr>
+	</template>

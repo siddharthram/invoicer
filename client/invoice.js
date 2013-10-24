@@ -1,6 +1,6 @@
-Invoicer.Invoice = {
+Invoicer.Invoices = {
 	create: function(date, amount,  description) {
-		InvoiceModel.insert({
+		InvoicesModel.insert({
 			"date": date,
 			"amount": amount,
 			"description": description
