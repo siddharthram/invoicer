@@ -4,25 +4,26 @@
 	</div>
 	<div class="main_container">
 		<h1>Invoicer</h1>
-		<div class="content” id="invoice_content">
-			<div id="invoices_header">
-				<h3>Invoices</h3>
-				<span class="title_link">
-					- <a href="#" id="new_invoice"> Add an Invoice</a>
-				</span>
-			</div>
+		<div class="content" id="invoice_content">
 			{{#if new_invoice}}
 			<div class="new_invoice">
 				{{> new_invoice}}
 			</div>
 			{{/if}}
+			<div id="invoices_header">
+				<h3>Invoices</h3>
+				<span class="title_link">
+					 <a href="#" id="new_invoice"> Add an Invoice</a>
+				</span>
+			</div>
+		
 			{{#if has_invoices}}
-			<table id="invoices">
-				<thead>
+			<table id="list_invoices">
+				<thead> 
 					<tr>
 						<th></th>
-						<th class="button_col"></th>
-						<th class="button_col"></th>
+						<th class="button_col">Name</th>
+						<th class="button_col">ID</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,34 +39,35 @@
 	</div>
 </template>
 
-<template name="new_invoice">
-	<div class="container">
+<template name='new_invoice'>
+	<div class="container newinvoice_container">
 		<form class="form-horizontal">
-			<div class="control-group">
-				<label class="control-label" for="inputClient">Client 
-				</label>
-				<div class="controls">
-					<input type="text" id="inputClient"  placeholder="client name...">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label" for="inputClient">Client 
+					</label>
+					<div class="controls">
+						<input type="text" id="inputClient"  placeholder="client name..."/>
+					</div>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="inputClient">Invoice 
-				</label>
-				<div class="controls">
-					<input type="text" id="inputInvoiceId"  placeholder="Invoice Id...">
+				<div class="control-group">
+					<label class="control-label" for="inputClient">Invoice 
+					</label>
+					<div class="controls">
+						<input type="text" id="inputInvoiceId" placeholder="Invoice Id..."/>
+					</div>
+					<!--input type="submit" class="btn" id="newinvoicebtn"-->
+					<button type="submit" id="newinvoicebtn">Submit</button>
 				</div>
-			<button type="submit" class="btn">Save</button>
-
-			</div>
+			</fieldset>
 		</form>
 	</div>
 </template>
 
 
-	<template name="invoice_row">
-		<tr>
-			<td> <span class="invoice_date">{{date}} </span> </td>
-			<td> <span class="invoice_amount">{{amount}}</span> </td>
-			<td> <span class="invoice_description">{{description}}</span> </td>
-		</tr>
-	</template>
+<template name="invoice_row">
+	<tr>
+		<td> <span class="invoice_date">{{client}} </span> </td>
+		<td> <span class="invoice_amount">{{i_id}}</span> </td>
+	</tr>
+</template>
