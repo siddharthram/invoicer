@@ -21,4 +21,9 @@
 .invoice_title{
     font-size: 19px;
     line-height: 50px;
+
+}
+
+.invoice_line {
+	align: left;
 }

@@ -13,15 +13,14 @@
 			<div id="invoices_header">
 				<h3>Invoices</h3>
 				<span class="title_link">
-					 <a href="#" id="new_invoice"> Add an Invoice</a>
+					<a href="#" id="new_invoice"> Add an Invoice</a>
 				</span>
 			</div>
-		
+
 			{{#if has_invoices}}
 			<table id="list_invoices">
 				<thead> 
 					<tr>
-						<th></th>
 						<th class="button_col">Name</th>
 						<th class="button_col">ID</th>
 					</tr>
@@ -57,8 +56,39 @@
 						<input type="text" id="inputInvoiceId" placeholder="Invoice Id..."/>
 					</div>
 					<!--input type="submit" class="btn" id="newinvoicebtn"-->
-					<button type="submit" id="newinvoicebtn">Submit</button>
 				</div>
+				<table id="tb_invoicelines">
+					<thead bgcolor="gray">
+						<tr>
+						
+							<th class="invoice_line" width ="50%"  class="button_col">Qty</th>
+							<th class="invoice_line" width="50%" class="button_col">Description</th>
+							<th class="invoice_line"" width="50%">Price</th>
+							<th class="invoice_line">Total</th>
+						</tr>
+					</thead>
+					<tr> 
+						<button type="submit" id="bt_newline" class="btn-inverse"> Add line </button>
+						<td class="invoice_line" width="25%">
+								<input type="text" id="quantity1"/>
+							</td>
+							<td class="invoice_line" width="25%">
+								<select id="quantity2">
+									<option>minutes</option>
+									<option>hours</option>
+									<option>days</option>
+								</select>
+							</td>
+						<td class="invoice_line" width="45%">
+							<input type="text" class="invoice_line" placeholder="price"/>
+						</td>
+						<td class="invoice_line" width="5%">
+							<input type="text" placeholder="total.."/>
+						</td>
+					</tr>
+				</table>
+
+				<button type="submit" id="bt_newinvoicebtn" class="btn-primary">Submit</button>
 			</fieldset>
 		</form>
 	</div>
@@ -67,7 +97,7 @@
 
 <template name="invoice_row">
 	<tr>
-		<td> <span class="invoice_date">{{client}} </span> </td>
-		<td> <span class="invoice_amount">{{i_id}}</span> </td>
+		<td class="button_col invoice_amount">{{i_id}} </td>
+		<td class="button_col invoice_date">{{client}}</td>
 	</tr>
 </template>

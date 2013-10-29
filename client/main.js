@@ -28,14 +28,19 @@ Template.invoices_page.events ({
 		//Invoicer.Invoices.create( new Date(), 100, "new invoice");
 
 	},
-	'click #newinvoicebtn': function (e,t) {
+	'click #bt_newinvoicebtn': function (e,t) {
 		//alert ("saving");
 		//e.preventDefault();
+		//lines = t.find
 		Invoicer.Invoices.create(t.find("#inputClient").value,t.find("#inputInvoiceId").value);
 		//jQuery('.newinvoice_container').hide();
 		Session.set('adding_invoice', false);
 		//return false;
 	},
+
+	'click #bt_newline': function(e,t) {
+		$('#tb_invoicelines tr:last').after('<tr> <button type="submit" id="bt_newline" class="btn-inverse"> Add line </button><td class="invoice_line" width="25%"><input type="text" id="quantity1"/></td><td class="invoice_line" width="25%"><select id="quantity2"> <option>minutes</option> <option>hours</option> <option>days</option> </select> </td> <td class="invoice_line" width="45%"> <input type="text" class="invoice_line" placeholder="price"/> </td> <td class="invoice_line" width="5%"> <input type="text" placeholder="total.."/> </td> </tr>');
+ },
 
 	'click .delete_invoice' : function() {
 		alert("yo");
