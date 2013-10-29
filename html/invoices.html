@@ -55,6 +55,7 @@
 					<div class="controls">
 						<input type="text" id="inputInvoiceId" placeholder="Invoice Id..."/>
 					</div>
+					<button id="bt_newline" type="submit" class="btn-inverse"> Add Line </button>
 					<!--input type="submit" class="btn" id="newinvoicebtn"-->
 				</div>
 				<table id="tb_invoicelines">
@@ -67,25 +68,6 @@
 							<th class="invoice_line">Total</th>
 						</tr>
 					</thead>
-					<tr> 
-						<button type="submit" id="bt_newline" class="btn-inverse"> Add line </button>
-						<td class="invoice_line" width="25%">
-								<input type="text" id="quantity1"/>
-							</td>
-							<td class="invoice_line" width="25%">
-								<select id="quantity2">
-									<option>minutes</option>
-									<option>hours</option>
-									<option>days</option>
-								</select>
-							</td>
-						<td class="invoice_line" width="45%">
-							<input type="text" class="invoice_line" placeholder="price"/>
-						</td>
-						<td class="invoice_line" width="5%">
-							<input type="text" placeholder="total.."/>
-						</td>
-					</tr>
 				</table>
 
 				<button type="submit" id="bt_newinvoicebtn" class="btn-primary">Submit</button>
